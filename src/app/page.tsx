@@ -2,8 +2,10 @@ import { Icons } from "@/components/icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Phone from "@/components/Phone";
 import { Reviews } from "@/components/Reviews";
+import { buttonVariants } from "@/components/ui/button";
 import { StarFilledIcon } from "@radix-ui/react-icons";
-import { Check, Star } from "lucide-react";
+import { ArrowRight, Check, Star } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -26,7 +28,7 @@ export default function Home() {
               <p className="mt-8 text-lg lg:pr-10 max-w-prose text-center lg:text-left text-balance md:text-wrap">
                 Capture your favorite memories with your own,{" "}
                 <span className="font-semibold">one-of-one</span> phone case.
-                MasterEagle allows you to protect your emories, not just your
+                MasterEagle allows you to protect your memories, not just your
                 phone case.
               </p>
               <ul className="mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start">
@@ -36,7 +38,7 @@ export default function Home() {
                     High-quality, durable material
                   </li>
                   <li className="flex gap-1.5 items-center text-left">
-                    <Check className="h-5 w-5 shrink-0 text-blue-600" />3 year
+                    <Check className="h-5 w-5 shrink-0 text-blue-600" />5 year
                     print guarantee
                   </li>
                   <li className="flex gap-1.5 items-center text-left">
@@ -138,7 +140,7 @@ export default function Home() {
                 <p>
                   "The case feels durable and I even got a compliment on the
                   design. Had the case for two and a half months now and{" "}
-                  <span className="p-0.5 bg-slate-800 text-white rounded">
+                  <span className="p-0.5 bg-slate-800 text-white rounded-lg">
                     the image is super clear
                   </span>
                   , on the case I had before, the image started fading into
@@ -180,7 +182,7 @@ export default function Home() {
                   and that led to some pretty heavy scratchmarks on all of my
                   last phone cases. This one, besides a barely noticeable
                   scratch on the corner,{" "}
-                  <span className="p-0.5 bg-slate-800 rounded text-white">
+                  <span className="p-0.5 bg-slate-800 rounded-lg text-white">
                     looks brand new after about half a year
                   </span>
                   . I dig it."
@@ -207,6 +209,68 @@ export default function Home() {
         <div className="pt-16">
           <Reviews />
         </div>
+      </section>
+      <section>
+        <MaxWidthWrapper className="py-24">
+          <div className="mb-12 px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl sm:text-center">
+              <h2 className="order-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+                Upload your photo and get{" "}
+                <span className="relative px-2 bg-orange-600 rounded-xl text-white">
+                  your own case{" "}
+                </span>{" "}
+                now
+              </h2>
+            </div>
+          </div>
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="relative flex flex-col items-center md:grid grid-cols-2 gap-40">
+              <img
+                className="absolute top-[25rem] md:top-1/2 -translate-y-1/2 z-10 left-1/2 -translate-x-1/2 rotate-90 md:rotate-0"
+                src="/arrow.png"
+                alt=""
+              />
+              <div className="relative h-80 md:h-full w-full md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl">
+                <img
+                  className="rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full"
+                  src="/horse.jpg"
+                  alt=""
+                />
+              </div>
+              <Phone className="w-60" imgSrc="/horse_phone.jpg" />
+            </div>
+          </div>
+
+          <ul className="mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit">
+            <li className="w-fit">
+              <Check className="h-5 w-5 text-blue-600 inline mr-1.5" />
+              High-quality silicone material
+            </li>
+            <li className="w-fit">
+              <Check className="h-5 w-5 text-blue-600 inline mr-1.5" />
+              Scratch and fingerprint resistent coating
+            </li>
+            <li className="w-fit">
+              <Check className="h-5 w-5 text-blue-600 inline mr-1.5" />
+              Wireless charging compatible
+            </li>
+            <li className="w-fit">
+              <Check className="h-5 w-5 text-blue-600 inline mr-1.5" />5 year
+              print warranty
+            </li>
+            <div className="flex justify-center">
+              <Link
+                className={buttonVariants({
+                  size: "lg",
+                  className: "mx-auto mt-8",
+                })}
+                href={"/configure/upload"}
+              >
+                Create your case now <ArrowRight className="h-4 w-5 ml-1.5" />
+              </Link>
+            </div>
+          </ul>
+        </MaxWidthWrapper>
       </section>
     </div>
   );
